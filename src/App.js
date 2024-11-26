@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieListnav from './components/movieListnav';
 import SearchBar from './components/searchBar';
+import MovieSlideshow from "./components/MovieSlideshow";
 
 function App() {
   const [movies, setMovies] = useState([]);
