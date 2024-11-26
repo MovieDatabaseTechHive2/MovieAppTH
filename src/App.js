@@ -81,7 +81,7 @@ function App() {
               Back to Search Results
             </button>
           </div>
-        ) : (
+          ) : (
           <MovieList
             movies={movies}
             onSelectMovie={getMovieDetails} // Pass function to handle selecting a movie

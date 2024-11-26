@@ -1,4 +1,36 @@
-body{
-  background-color: rgb(39, 37, 37);
-  color:rgb(206, 203, 203);
+/*body{
+  background-color: rgb(39,37,37);
+  color:rgb(206,203,203)
+}*/
+
+/* Make the background of the 'btn btn-primary' transparent */
+.btn btn-primary {
+  background-color: transparent;
+  border: 2px solid white; /* Optional: Adds a border to make it visible */
+  color: white; /* Optional: Changes text color to match the border */
+  padding: 10px 20px; /* Add padding for better click area */
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Center the image */
+.movie-item {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.movie-item img {
+  max-width: 200%;
+  height: auto;
+  margin-bottom: 15px; /* Adds space between the image and the button */
+}
+
+/* Optional: Style the container for the 'View Details' button */
+.movie-item button {
+  margin-top: 10px;
+  align-self: center;
 }
