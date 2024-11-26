@@ -57,7 +57,7 @@ const NavigationBar = () => {
         >
           Search
         </a>
-       
+        
         <a 
           href="#favorites" 
           className={section === 'favorites' ? 'active' : ''} 
