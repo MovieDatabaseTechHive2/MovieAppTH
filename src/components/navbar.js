@@ -58,13 +58,7 @@ const NavigationBar = () => {
           Search
         </a>
         
-        <a 
-          href="#favorites" 
-          className={section === 'favorites' ? 'active' : ''} 
-          onClick={() => setSection('favorites')}
-        >
-          Favorites
-        </a>
+        
        
       </div>
 

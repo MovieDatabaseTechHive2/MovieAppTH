@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import MovieList from './components/movieList'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import MovieListnav from './components/movieListnav'; 
+//import MovieListnav from './components/movieListnav'; 
 import SearchBar from './components/searchBar'; 
-import navbar from './components/navbar';
+//import navbar from './components/navbar';
 import NavigationBar from './components/navbar';
 function App() {
   const [movies, setMovies] = useState([]);
@@ -59,7 +59,7 @@ function App() {
   return (
     <div className='container-fluid'>
       <div className="row">
-        <MovieListnav />
+        <NavigationBar />
       </div>
       <div className="row">
         <SearchBar
@@ -93,4 +93,4 @@ function App() {
   );
 }
 
-export default NavigationBar;
+export default App;
