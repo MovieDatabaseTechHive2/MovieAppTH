@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieListnav from './components/movieListnav'; // Navigation component
 import SearchBar from './components/searchBar'; // Search bar component
-
+import navbar from './components/navbar';
+import NavigationBar from './components/navbar';
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null); // To store the selected movie details
@@ -68,7 +69,7 @@ function App() {
       </div>
       <div className="row">
         {selectedMovie ? (
-          <div className="col-md-12">
+          <div className="movie-item">
             <h2>{selectedMovie.Title}</h2>
             <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="img-fluid" />
             <p><strong>Year:</strong> {selectedMovie.Year}</p>
