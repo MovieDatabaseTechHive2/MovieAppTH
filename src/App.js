@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieListnav from './components/movieListnav'; // Navigation component
 import SearchBar from './components/searchBar'; // Search bar component
-
+import navbar from './components/navbar';
+import NavigationBar from './components/navbar';
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null); // To store the selected movie details
@@ -92,4 +93,4 @@ function App() {
   );
 }
 
-export default App;
+export default NavigationBar;
