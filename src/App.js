@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import MovieList from './components/movieList'; // Movie list component
+import MovieList from './components/movieList'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import MovieListnav from './components/movieListnav'; // Navigation component
-import SearchBar from './components/searchBar'; // Search bar component
+import MovieListnav from './components/movieListnav'; 
+import SearchBar from './components/searchBar'; 
 import navbar from './components/navbar';
 import NavigationBar from './components/navbar';
 function App() {
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null); // To store the selected movie details
-  const [searchMovie, setSearchMovie] = useState(''); // The search term
+  const [selectedMovie, setSelectedMovie] = useState(null); 
+  const [searchMovie, setSearchMovie] = useState(''); 
 
   // Fetch the list of movies based on the search term
   const getMoviesRequest = async (searchTerm) => {
-    if (!searchTerm) return; // Don't fetch if the search term is empty
+    if (!searchTerm) return; 
 
     const url = `http://www.omdbapi.com/?s=${searchTerm}&apikey=63996807`;
 
