@@ -1,4 +1,74 @@
-/* .item
-{
-  background-image: url("/john_wick_chapter 5.jpg");
-} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+}
+
+.container {
+    margin: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .slide {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between items */
+    align-items: center;
+    height: 100%;
+}
+
+.container .slide .item {
+    width: 200px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.container .slide .item .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.container .slide .item .discription {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.container .slide .item button {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.container .slide .item button:hover {
+    background: #555;
+}
