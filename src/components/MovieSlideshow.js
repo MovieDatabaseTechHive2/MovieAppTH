@@ -17,8 +17,7 @@ const MovieSlideshow = () => {
       .catch(error => {
         console.log('Error fetching data: ', error); // Handle any errors
       });
-  }, []); // Empty dependency array ensures this runs only once, like componentDidMount
-
+  }, []); 
   // Slick carousel settings
   const settings = {
     dots: true,
