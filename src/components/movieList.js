@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 const MovieList = ({ movies, onSelectMovie }) => {
   return (
     <div className="row">
@@ -19,6 +21,7 @@ const MovieList = ({ movies, onSelectMovie }) => {
                 onClick={() => onSelectMovie(movie.imdbID)} // Handle movie selection
               >
                 View Details
+             
               </button>
             </div>
           </div>
