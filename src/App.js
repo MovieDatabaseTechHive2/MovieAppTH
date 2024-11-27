@@ -57,40 +57,43 @@ function App() {
   }, [searchMovie]);
 
   return (
-    <div className='container-fluid'>
+    
+<div className="container">
+  {selectedMovie ? (
+   <div class ="center">
+<img class="img-size"src={`${selectedMovie.Poster}`}></img>
+<div className="movie-card">
+   <div className="movie-details card">
+     <div className="card-body">
+       <h2 className="card-title">{selectedMovie.Title}</h2>
+       <p>{selectedMovie.Director}</p>
+       <p>{selectedMovie.Year}</p>
+       <p><strong>Actors:</strong> {selectedMovie.Actors}</p>
+       <p><strong>Genre:</strong> {selectedMovie.Genre}</p>
+       <p><strong>IMDB Rating:</strong> {selectedMovie.imdbRating}</p>
+       <p><strong>Plot:</strong> {selectedMovie.Plot}</p>
+       <button className="btn btn-primary" onClick={() => setSelectedMovie(null)}>
+         Back to Search Results
+       </button>
+     </div>
+     </div>
+   </div></div>
+  ) : (
+    <div className="movie-search">
       <div className="row">
         <MovieListnav />
       </div>
       <div className="row">
-        <SearchBar
-          value={searchMovie}
-          setSearchMovie={setSearchMovie}
-        />
+        <SearchBar value={searchMovie} setSearchMovie={setSearchMovie} />
       </div>
       <div className="row">
-        {selectedMovie ? (
-          <div className="movie-item">
-            <h2>{selectedMovie.Title}</h2>
-            <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="img-fluid" />
-            <p><strong>Year:</strong> {selectedMovie.Year}</p>
-            <p><strong>Director:</strong> {selectedMovie.Director}</p>
-            <p><strong>Actors:</strong> {selectedMovie.Actors}</p>
-            <p><strong>Plot:</strong> {selectedMovie.Plot}</p>
-            <p><strong>Genre:</strong> {selectedMovie.Genre}</p>
-            <p><strong>IMDB Rating:</strong> {selectedMovie.imdbRating}</p>
-            <button className="btn btn-primary" onClick={() => setSelectedMovie(null)}>
-              Back to Search Results
-            </button>
-          </div>
-          ) : (
-          <MovieList
-            movies={movies}
-            onSelectMovie={getMovieDetails} // Pass function to handle selecting a movie
-          />
-        )}
+        <MovieList movies={movies} onSelectMovie={getMovieDetails} />
       </div>
     </div>
-  );
-}
+  )}
+</div>
+  )};
+
+
 
 export default App;
