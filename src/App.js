@@ -40,12 +40,14 @@ function App() {
   return (
     <div className='container-fluid'>
       <div className="row">
+     
         <MovieListnav />
       </div>
       <SearchBar 
         value={searchMovie}            // Bind the search input to the searchMovie state
         setSearchMovie={setSearchMovie} // Pass the setSearchMovie function to update searchMovie state
       />
+         <MovieSlideshow/>
       <div className="row">
         <MovieList movies={movies} />   {/* Render MovieList component */}
       </div>

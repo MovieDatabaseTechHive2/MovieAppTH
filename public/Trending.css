@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,61 +14,101 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1000px;
+    width: 1200px;
     height: 600px;
     background: #f5f5f5;
     box-shadow: 0 30px 50px #dbdbdb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container .slide {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between items */
-    align-items: center;
-    height: 100%;
 }
 
 .container .slide .item {
     width: 200px;
     height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
     border-radius: 20px;
     box-shadow: 0 30px 50px #505050;
     background-position: 50% 50%;
     background-size: cover;
+    display: inline-block;
     transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px;
-    color: white;
-    text-align: center;
+    z-index: -1;
+
 }
 
-.container .slide .item .name {
-    font-size: 18px;
+.slide .item:nth-child(1),
+.slide .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide .item:nth-child(3) {
+    left: 250px;
+}
+
+.slide .item:nth-child(4) {
+    left: 500px; 
+}
+
+.slide .item:nth-child(5) {
+    left: 750px; 
+}
+
+.slide .item:nth-child(6) {
+    left: 1000px;
+}
+.item .content
+{
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  text-align: left;
+  color: #eeee;
+  transform: translate(0, -50%);
+  font-family: system-ui;
+  display: none;
+}
+.slide .item:nth-child(2)
+{
+    display: block;
+}
+.content .name
+{
+    font-size: 40px;
+    text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 5px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
 }
 
-.container .slide .item .discription {
-    font-size: 14px;
-    margin-bottom: 10px;
+.content .discription
+{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
 }
-
-.container .slide .item button {
+.content button
+{
     padding: 10px 20px;
-    background: #333;
-    color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
 }
-
-.container .slide .item button:hover {
-    background: #555;
-}
+@keyframes animate
+{
+from{
+        opacity: 0;
+        transform: translate(0, 100%);
+        filter: blur(33px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0);
+    }
+} */
