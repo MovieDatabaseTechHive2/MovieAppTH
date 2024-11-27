@@ -6,3 +6,4 @@ const MovieListnav =(props) => {
     )};
 
 export default MovieListnav;
+
