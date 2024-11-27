@@ -1,10 +1,11 @@
 import React from 'react';
+import Footer from './components/Footer';
 import './Footer.css';
 
-const Footer = () => {
+const App = () => {
   return (
     <footer className="footer">
-      <div className="footer-content">
+      <div className="App">
         <div className="footer-section">
           <h3>About Us</h3>
           <p>
@@ -33,4 +34,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default App;
