@@ -21,15 +21,6 @@ const NavigationBar = () => {
             <p>Find your favorite movies and shows.</p>
           </>
         );
-     
-      case 'favorites':
-        return (
-          <>
-            <h1>Favorites</h1>
-            <p>View your saved movies and watchlist.</p>
-          </>
-        );
-   
       default:
         return (
           <>
@@ -57,17 +48,7 @@ const NavigationBar = () => {
         >
           Search
         </a>
-        
-        <a 
-          href="#favorites" 
-          className={section === 'favorites' ? 'active' : ''} 
-          onClick={() => setSection('favorites')}
-        >
-          Favorites
-        </a>
-       
       </div>
-
       <div className="content">
         {renderContent()}
       </div>
