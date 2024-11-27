@@ -63,7 +63,6 @@ function App() {
       </div>
       {showHome ? (
         <div className="row text-center mt-5">
-          <h1>Welcome to Movie Explorer</h1>
           <button
             className="btn btn-primary mt-3"
             onClick={() => setShowHome(false)}

@@ -10,24 +10,16 @@ const NavigationBar = () => {
       case 'home':
         return (
           <>
-            <h1>Home</h1>
-            <p>Discover trending and recommended movies.</p>
+            <h1>Welcome to the Movie App!</h1>
           </>
         );
       case 'search':
         return (
           <>
-            <h1>Search</h1>
-            <p>Find your favorite movies and shows.</p>
+            <h1>Find your favourite movies and shows.</h1>
           </>
         );
       default:
-        return (
-          <>
-            <h1>Welcome to the Movie App</h1>
-            <p>Select an option from the navigation bar.</p>
-          </>
-        );
     }
   };
 
