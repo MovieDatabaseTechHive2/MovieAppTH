@@ -5,7 +5,7 @@ import './App.css';
 import SearchBar from './components/searchBar'; 
 import NavigationBar from './components/navbar'; 
 import navbar from './components/navbar';
-import NavigationBar from './components/navbar';
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null); 
@@ -61,10 +61,12 @@ function App() {
     
 <div className="container">
   {selectedMovie ? (
-   <div class ="center">
+    
+   <div>
+    
 <img class="img-size"src={`${selectedMovie.Poster}`}></img>
 <div className="movie-card">
-   <div className="movie-details card">
+   <div className="movie-details ">
      <div className="card-body">
        <h2 className="card-title">{selectedMovie.Title}</h2>
        <p>{selectedMovie.Director}</p>
