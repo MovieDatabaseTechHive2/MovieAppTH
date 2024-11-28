@@ -1,6 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 body{
   background-color: rgb(39,37,37);
-  color:rgb(206,203,203)
+  color:rgb(206,203,203);
+  font-family: "Montserrat";
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/bgimage.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Make the background of the 'btn btn-primary' transparent */
@@ -13,29 +23,51 @@ body{
   font-weight: bold;
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
-
-/* Center the image */
-.movie-item {
+/* Centering the flex-center div */
+.flex-center {
   display: flex;
-  flex-direction: column;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;      /* Vertically center */
+  height: 100vh;            /* Full viewport height */
+  text-align: center;       /* Optional: center text inside inner elements */
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;   /* Stack image and details vertically */
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: center;      /* Optional: center the content of the movie card */
+  border-radius: 8px;
+  padding: 20px;
+
 }
 
-.movie-item img {
-  max-width: 500%;
-  height: auto;
-  margin-bottom: 15px; /* Adds space between the image and the button */
+.img-size {
+  width: 361px;
+  border-radius: 2%;
+  margin-right: 40px;       /* Space between the image and details */
 }
 
-/* Optional: Style the container for the 'View Details' button */
-.movie-item button {
-  margin-top: 10px;
-  align-self: center;
+.card-body {
+  max-width: 500px;         /* Optional: Limit the width of the card */
+  text-align: left;         /* Left-align text in the movie details */
 }
-.img-fluid{
-  width: 200px;
+
+.card-title {
+  font-size: 3.6em;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.btn {
+  margin-top: 20px;
+}
+.bold{
+  font-weight: 700;
+}
+.blue-font{
+  color: #3981bb;
+
 }
 
 

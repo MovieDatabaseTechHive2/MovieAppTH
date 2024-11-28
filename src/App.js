@@ -59,28 +59,32 @@ function App() {
 
   return (
     
-<div className="container">
+<div className="container bg">
   {selectedMovie ? (
     
-   <div>
+   <div class="flex-center ">
     
 <img class="img-size"src={`${selectedMovie.Poster}`}></img>
 <div className="movie-card">
-   <div className="movie-details ">
-     <div className="card-body">
-       <h2 className="card-title">{selectedMovie.Title}</h2>
-       <p>{selectedMovie.Director}</p>
-       <p>{selectedMovie.Year}</p>
-       <p><strong>Actors:</strong> {selectedMovie.Actors}</p>
-       <p><strong>Genre:</strong> {selectedMovie.Genre}</p>
-       <p><strong>IMDB Rating:</strong> {selectedMovie.imdbRating}</p>
-       <p><strong>Plot:</strong> {selectedMovie.Plot}</p>
-       <button className="btn btn-primary" onClick={() => setSelectedMovie(null)}>
-         Back to Search Results
-       </button>
-     </div>
-     </div>
-   </div></div>
+    <div className="movie-details">
+      <div className="card-body">
+        <h2 className="card-title">{selectedMovie.Title}</h2>
+        <p class="bold">{selectedMovie.Director}</p>
+        <p class="bold">★  {selectedMovie.imdbRating} | {selectedMovie.Runtime}</p>
+        <p><strong>GENERE</strong></p>
+        <p>{selectedMovie.Genre}</p>
+        <p>{selectedMovie.Year}</p>
+       
+        
+        <p><strong>SYNOPSIS</strong> </p>
+        <p>{selectedMovie.Plot}</p>
+        <p><strong> THE ACTORS</strong></p><p class="blue-font"> {selectedMovie.Actors}</p>
+        <button className="btn btn-primary" onClick={() => setSelectedMovie(null)}>
+          Back to Search Results
+        </button>
+      </div>
+    </div>
+  </div></div>
   ) : (
     <div className="movie-search">
       <div className="row">
