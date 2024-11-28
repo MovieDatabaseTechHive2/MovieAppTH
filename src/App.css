@@ -150,6 +150,18 @@ body {
   opacity: 1;
 }
 
+.serachBar{
+  width: 100%;
+  display: flex
+  ;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+
 /* Card hover effect */
 .card:hover {
   background-color: hsl(0, 0%, 15%);

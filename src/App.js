@@ -102,7 +102,7 @@ function App() {
         </div>
       ) : (
         <>
-          <div className="row">
+          <div className="row serachBar">
             <SearchBar
               value={searchMovie}
               setSearchMovie={setSearchMovie}
