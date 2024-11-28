@@ -5,6 +5,8 @@ import './App.css';
 import SearchBar from './components/searchBar'; 
 import NavigationBar from './components/navbar'; 
 
+
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null); 
@@ -110,6 +112,10 @@ function App() {
           </div>
         </>
       )}
+            <footer className="bg-dark text-light py-3 text-center">
+        <p>© 2024 Movie Explorer. All rights reserved.</p>
+        <p>Created by Maneo</p>
+      </footer>
     </div>
   );
 }
