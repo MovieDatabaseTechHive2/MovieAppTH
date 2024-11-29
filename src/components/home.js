@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './home.css';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 89be1a91ece5c80231ac797f6326c88860408eb9
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -59,7 +55,6 @@ const Home = () => {
       scrollerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
->>>>>>> 89be1a91ece5c80231ac797f6326c88860408eb9
 
   // Handle loading and error states
   if (loading) {
@@ -74,14 +69,12 @@ const Home = () => {
     <div className="scroller-container">
       <h2>Recent Movies of {new Date().getFullYear()}</h2>
       <div className="scroller-wrapper">
-<<<<<<< HEAD
-=======
+
         {/* Left button */}
         <button className="scroller-button left" onClick={() => scroll('left')}>
           &#8249;
         </button>
 
->>>>>>> 89be1a91ece5c80231ac797f6326c88860408eb9
         {/* Scroller */}
         <div className="scroller" ref={scrollerRef}>
           {movies.map((movie) => (
@@ -106,14 +99,13 @@ const Home = () => {
             </div>
           ))}
         </div>
-<<<<<<< HEAD
-=======
+
 
         {/* Right button */}
         <button className="scroller-button right" onClick={() => scroll('right')}>
           &#8250;
         </button>
->>>>>>> 89be1a91ece5c80231ac797f6326c88860408eb9
+
       </div>
     </div>
   );
