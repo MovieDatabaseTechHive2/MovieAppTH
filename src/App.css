@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+  background-color: rgb(39,37,37);
+  color:rgb(206,203,203);
+  font-family: "Montserrat";
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/bgimage.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Make the background of the 'btn btn-primary' transparent */
+.btn btn-primary {
+  background-color: transparent;
+  border: 2px solid white; /* Optional: Adds a border to make it visible */
+  color: white; /* Optional: Changes text color to match the border */
+  padding: 10px 20px; /* Add padding for better click area */
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+/* Centering the flex-center div */
+.flex-center {
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;      /* Vertically center */
+  height: 100vh;            /* Full viewport height */
+  text-align: center;       /* Optional: center text inside inner elements */
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;   /* Stack image and details vertically */
+  justify-content: center;
+  align-items: center;      /* Optional: center the content of the movie card */
+  border-radius: 8px;
+  padding: 20px;
+
+}
+
+.img-size {
+  width: 361px;
+  border-radius: 2%;
+  margin-right: 40px;       /* Space between the image and details */
+}
+
+.card-body {
+  max-width: 500px;         /* Optional: Limit the width of the card */
+  text-align: left;    
+    /* Left-align text in the movie details */
+}
+.whitefont{
+  color:whitesmoke!important;  
+}
+.card-title {
+  font-size: 3.6em;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.btn {
+  margin-top: 20px;
+}
+.bold{
+  font-weight: 700;
+}
+.blue-font{
+  color: #3981bb;
+
+}
+
+/* Basic body styling */
+body {
+  background-color: rgb(39, 37, 37);
+  color: rgb(206, 203, 203);
+  font-family: "Montserrat";
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/bgimage.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Centering the flex-center div */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Movie card styling */
+.movie-card {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Add fade-in effect for transitions */
+.transition {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.transition.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.img-size {
+
+ 
+  margin-right: 40px;
+}
+.col-md-3{
+  margin-bottom: 10px;
+}
+
+.card-box {
+  height: 400px; /* Adjust this to the desired height for each card */
+  width: 100%; /* Ensure the card width is 100% for responsiveness */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* The image inside the card */
+.thumb img {
+  width: 100%;        /* Ensure the image fills the container */
+  height: 100%;       /* Make the image cover the full height of its container */
+  object-fit: cover;  /* Ensure image fills the space without distortion */
+  border-radius: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;  /* Add transition effects */
+}
+
+/* Content area inside card */
+.content {
+  flex-grow: 1;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);  /* Background for the text */
+  color: white;
+  opacity: 0;  /* Hide content by default */
+  transition: opacity 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+
+.card-box:hover .content {
+  opacity: 1;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 30px !important;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide In from the Left */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.slide-in {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+
+.bounce-btn:hover {
+  animation: bounce 0.5s ease-in-out;
+  
+}
+
+
+.pulse-img:hover {
+  animation: pulse 1s infinite;
+}
+
+
+.footer-appear {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+.card:hover {
+  background-color: hsl(0, 0%, 15%);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4),
+    inset 1px 2px 4px rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.card:hover .thumb img {
+  opacity: 0.3;  /* Fade the image on hover */
+  filter: blur(8px); /* Slightly blur the image */
+}
+
+.card:hover .content {
+  opacity: 1;  /* Reveal content when hovered */
+}
+
+/* Movie title styling */
+.card-title {
+  font-size: 3.6em;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.blue-font {
+  color: #3981bb;
+}
+
+/* Movie details section */
+.card-body {
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Styling for additional information (e.g., release date, genre) */
+.propertion {
+  font-size: 0.8em;
+  color: var(--text-color-L2);
+}
+.large-Font{
+  font-size: 1.32em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 36px;
+}
+/* Ensure title and rating align properly */
+.title,
+.level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bi {
+  margin: 0 2px;
+}
+
+.bg-dark {
+  --bs-bg-opacity: 0 !important
+}
+.nav-brand 
+{
+  font-size: 30px;
+  font-weight: bold;
+}
+.bluecolor
+{
+  color: #007bff;
+  font-size: inherit;
+}
