@@ -139,3 +139,32 @@
     margin-top: 0% !important;
   }
 }
+/* HomePage.css */
+.homeContainer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.next,
+.prev {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.next:hover,
+.prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Add any other styles for the HomeCard here */
