@@ -26,20 +26,8 @@ const NavigationBar = () => {
   return (
     <div>
       <div className="navbar">
-        <a 
-          href="#home" 
-          className={section === 'home' ? 'active' : ''} 
-          onClick={() => setSection('home')}
-        >
-          Home
-        </a>
-        <a 
-          href="#search" 
-          className={section === 'search' ? 'active' : ''} 
-          onClick={() => setSection('search')}
-        >
-          Search
-        </a>
+        
+       
       </div>
       <div className="content">
         {renderContent()}
