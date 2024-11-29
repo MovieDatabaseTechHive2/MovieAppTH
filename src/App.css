@@ -315,7 +315,7 @@ body {
   --bs-bg-opacity: 0 !important
 }
 .navbar-brand {
-  font-size: 30px; 
+  font-size: 30px !important;
   font-weight: bold; 
 
 }
