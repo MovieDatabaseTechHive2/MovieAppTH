@@ -3,6 +3,7 @@ import MovieList from './components/movieList';
 import SearchBar from './components/searchBar';
 import NavigationBar from './components/navbar';
 import Home from './components/home';
+import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Importing react-transition-group
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -70,77 +71,89 @@ function App() {
   };
 
   return (
-    <div className="d-flex flex-column min-vh-100">
-      {/* Conditionally render NavigationBar */}
+    <div className="d-flex flex-column min-vh-100 whitefont">
+     
       {!selectedMovie && <NavigationBar navigateHome={navigateHome} navigateMovies={navigateMovies} />}
 
       <div className="container bg flex-grow-1">
-        {selectedMovie ? (
-          <div className="transition fade-in">
-            <div className="flex-center">
-              <img className="img-size" src={`${selectedMovie.Poster}`} alt={selectedMovie.Title} />
-              <div className="movie-card">
-                <div className="movie-details">
-                  <div className="card-body">
-                    <h2 className="card-title">{selectedMovie.Title}</h2>
-                    <p className="bold">{selectedMovie.Director}</p>
-                    <p className="bold">
-                      ★ {selectedMovie.imdbRating} | {selectedMovie.Runtime}
-                    </p>
-                    <p>
-                      <strong>GENRE</strong>
-                    </p>
-                    <p>{selectedMovie.Genre}</p>
-                    <p>{selectedMovie.Year}</p>
-                    <p>
-                      <strong>SYNOPSIS</strong>
-                    </p>
-                    <p>{selectedMovie.Plot}</p>
-                    <p>
-                      <strong>ACTORS</strong>
-                    </p>
-                    <p className="blue-font">{selectedMovie.Actors}</p>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => setSelectedMovie(null)}
-                    >
-                      Back to Search Results
-                    </button>
+        <TransitionGroup component={null}>
+         
+          <CSSTransition
+            key={selectedMovie ? 'selected' : showHome ? 'home' : 'search'}
+            timeout={300}
+            classNames="fade"
+            unmountOnExit
+          >
+            <div>
+              {selectedMovie ? (
+                <div className="transition fade-in">
+                  <div className="flex-center">
+                    <img className="img-size pulse-img" src={`${selectedMovie.Poster}`} alt={selectedMovie.Title} />
+                    <div className="movie-card slide-in">
+                      <div className="movie-details">
+                        <div className="card-body">
+                          <h2 className="card-title">{selectedMovie.Title}</h2>
+                          <p className="bold">{selectedMovie.Director}</p>
+                          <p className="bold">
+                            ★ {selectedMovie.imdbRating} | {selectedMovie.Runtime}
+                          </p>
+                          <p>
+                            <strong>GENRE</strong>
+                          </p>
+                          <p>{selectedMovie.Genre}</p>
+                          <p>{selectedMovie.Year}</p>
+                          <p>
+                            <strong>SYNOPSIS</strong>
+                          </p>
+                          <p>{selectedMovie.Plot}</p>
+                          <p>
+                            <strong>ACTORS</strong>
+                          </p>
+                          <p className="blue-font">{selectedMovie.Actors}</p>
+                          <button
+                            className="btn btn-primary bounce-btn"
+                            onClick={() => setSelectedMovie(null)}
+                          >
+                            Back to Search Results
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        ) : showHome ? (
-          <div className="transition fade-in">
-            <Home setShowHome={setShowHome} />
-          </div>
-        ) : (
-          <div className="transition fade-in">
-            <div ref={searchBarRef} className="row serachBar">
-              <SearchBar value={searchMovie} setSearchMovie={setSearchMovie} />
-            </div>
-            <div className="row">
-              {noMoviesFound ? (
-                <div className="large-Font" role="alert">
-                  No movies found. Please try another search term.
+              ) : showHome ? (
+                <div className="transition fade-in">
+                  <Home setShowHome={setShowHome} />
                 </div>
               ) : (
-                <div className="row mt-3">
-                  <p className="large-Font">
-                    🎥 Discover Your Next Favorite Movie! Type in the name of a movie to explore the magic of cinema. 🌟
-                    <br />
-                    What are you in the mood for today? 🍿🎬
-                  </p>
-                  <MovieList movies={movies} onSelectMovie={getMovieDetails} />
+                <div className="transition fade-in ">
+                  <div ref={searchBarRef} className="row searchBar">
+                    <SearchBar value={searchMovie} setSearchMovie={setSearchMovie} />
+                  </div>
+                  <div className="row">
+                    {noMoviesFound ? (
+                      <div className="large-Font" role="alert">
+                        No movies found. Please try another search term.
+                      </div>
+                    ) : (
+                      <div className="row mt-3">
+                        <p className="large-Font">
+                          🎥 Discover Your Next Favorite Movie! Type in the name of a movie to explore the magic of cinema. 🌟
+                          <br />
+                          What are you in the mood for today? 🍿🎬
+                        </p>
+                        <MovieList movies={movies} onSelectMovie={getMovieDetails} />
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
-          </div>
-        )}
+          </CSSTransition>
+        </TransitionGroup>
       </div>
 
-      <footer className="bg-dark text-light py-3 text-center mt-auto">
+      <footer className="bg-dark text-light py-3 text-center mt-auto footer-appear">
         <p>© 2024 Movie Explorer. All rights reserved. Created by Tech Hivies Movie Studio.</p>
       </footer>
     </div>
