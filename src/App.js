@@ -4,7 +4,9 @@ import SearchBar from './components/searchBar';
 import NavigationBar from './components/navbar';
 import Home from './components/home';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Importing react-transition-group
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Bootstrap JS
+
 import './App.css';
 
 function App() {

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './home.css'
+import './home.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure this is included
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Bootstrap JS for carousel functionality
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,21 +44,64 @@ const Home = () => {
   return (
     <div className="container mt-5">
       <h2>Recent Movies of {new Date().getFullYear()}</h2>
-      <div className="row">
-        {movies.map((movie) => (
-          <div key={movie.imdbID} className="col-md-4 mb-4">
-            <div className="card">
-              <img src={movie.Poster} className="card-img-top" alt={movie.Title} />
-              <div className="card-body">
-                <h5 className="card-title">{movie.Title}</h5>
-                <p className="card-text">{movie.Year}</p>
-                <a href={`https://www.imdb.com/title/${movie.imdbID}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  View on IMDb
-                </a>
+
+      <div
+        id="movieCarousel"
+        className="carousel slide thumb"
+        data-bs-ride="carousel"
+        data-bs-interval="3000"
+        
+      >
+        <div className="carousel-inner">
+          {movies.reduce((acc, movie, index) => {
+            if (index % 3 === 0) acc.push(movies.slice(index, index + 3));
+            return acc;
+          }, []).map((group, index) => (
+            <div
+              key={index}
+              className={`carousel-item ${index === 0 ? 'active' : ''}`}
+            >
+              <div className="row">
+                {group.map((movie) => (
+                  <div key={movie.imdbID} className="col-md-4">
+                    <div className="card-box ">
+                      <img
+                        src={movie.Poster}
+                        className="card-img-top carousel-image"
+                        alt={movie.Title}
+                      />
+                      <div className="card-body  ">
+                        {/* <h5 className="card-title ">{movie.Title}</h5>
+                        <p className="card-text ">{movie.Year}</p> */}
+                       
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Carousel Controls */}
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#movieCarousel"
+          data-bs-slide="prev"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#movieCarousel"
+          data-bs-slide="next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   );

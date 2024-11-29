@@ -1,15 +1,110 @@
-.card-img-top {
-  max-height: 300px;
-  object-fit: cover;
+/* Make carousel slide vertically */
+.carousel.vertical-carousel .carousel-inner {
+  display: flex;
+  flex-direction: column;
+  height: 500px; /* Adjust height for 3 items */
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+.carousel.vertical-carousel .carousel-item {
+  height: 100%;
 }
 
+.carousel.vertical-carousel .carousel-control-prev,
+.carousel.vertical-carousel .carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel.vertical-carousel .carousel-control-prev {
+  left: 0;
+}
+
+.carousel.vertical-carousel .carousel-control-next {
+  right: 0;
+}
+
+/* Optional: Optional styling to adjust the size of cards */
+.card {
+  width: 100%;
+  margin: 10px auto;
+}
+/* Smooth transition for carousel items */
+.carousel-item {
+  transition: transform 0.5s ease; /* Smooth slide transition */
+}
+
+/* Style for larger images */
+.carousel-image {
+  width: 100%;
+  max-height: 400px;  /* You can adjust the height */
+  object-fit: cover;  /* Ensures the image covers the space properly */
+  border-radius: 10px;
+}
+.card:hover .thumb img {
+  opacity: 0.3;  /* Fade the image on hover */
+  filter: blur(8px); /* Slightly blur the image */
+}
+
+.card:hover .content {
+  opacity: 1;  /* Reveal content when hovered */
+}
+
+/* Movie title styling */
 .card-title {
-  font-size: 1.2rem;
+  font-size: 3.6em;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.blue-font {
+  color: #3981bb;
+}
+.thumb img {
+  width: 74%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Movie details section */
+.card-body {
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Styling for additional information (e.g., release date, genre) */
+.propertion {
+  font-size: 0.8em;
+  color: var(--text-color-L2);
+}
+.large-Font{
+  font-size: 1.32em;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 36px;
+}
+/* Ensure title and rating align properly */
+.title,
+.level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bi {
+  margin: 0 2px;
+}
+.propertion {
+  font-size: 0.8em;
+  color: var(--text-color-L2);
 }
