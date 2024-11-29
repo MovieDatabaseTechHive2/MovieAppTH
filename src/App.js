@@ -71,7 +71,8 @@ function App() {
 
   return (
     <div className="d-flex flex-column min-vh-100">
-      <NavigationBar navigateHome={navigateHome} navigateMovies={navigateMovies} />
+      {/* Conditionally render NavigationBar */}
+      {!selectedMovie && <NavigationBar navigateHome={navigateHome} navigateMovies={navigateMovies} />}
 
       <div className="container bg flex-grow-1">
         {selectedMovie ? (
@@ -121,21 +122,20 @@ function App() {
             </div>
             <div className="row">
               {noMoviesFound ? (
-                <div  className="large-Font" role="alert">
+                <div className="large-Font" role="alert">
                   No movies found. Please try another search term.
                 </div>
               ) : (
-                <div className="row mt-3 ">
-                  <p class="large-Font">            🎥 Discover Your Next Favorite Movie!
-    Type in the name of a movie to explore the magic of cinema. 🌟<br></br>
-    What are you in the mood for today? 🍿🎬 
-               </p>
-     
-                <MovieList movies={movies} onSelectMovie={getMovieDetails} />
+                <div className="row mt-3">
+                  <p className="large-Font">
+                    🎥 Discover Your Next Favorite Movie! Type in the name of a movie to explore the magic of cinema. 🌟
+                    <br />
+                    What are you in the mood for today? 🍿🎬
+                  </p>
+                  <MovieList movies={movies} onSelectMovie={getMovieDetails} />
                 </div>
               )}
             </div>
-           
           </div>
         )}
       </div>
