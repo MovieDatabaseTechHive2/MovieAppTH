@@ -129,12 +129,9 @@ function App() {
               )}
             </div>
             <div className="row mt-3">
-              <button
-                className="btn btn-secondary"
-                onClick={() => setShowHome(true)}
-              >
-                Back to Home
-              </button>
+            🎥 Discover Your Next Favorite Movie!
+Type in the name of a movie, director, or genre to explore the magic of cinema. 🌟
+What are you in the mood for today? 🍿🎬 
             </div>
           </div>
         )}
