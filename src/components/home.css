@@ -1,15 +1,95 @@
+/* Container styles */
+.scroller-container {
+  padding: 20px;
+  position: relative;
+}
+
+/* Scroller Wrapper for Buttons */
+.scroller-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Scroller styles */
+.scroller {
+  display: flex;
+  overflow-x: hidden; /* Hide the scrollbar */
+  gap: 20px;
+  scroll-behavior: smooth;
+  flex-grow: 1;
+  padding: 10px 0;
+}
+
+/* Scroller Item */
+.scroller-item {
+  flex: 0 0 auto;
+  width: 250px;
+}
+
+/* Card styles */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .card-img-top {
   max-height: 300px;
   object-fit: cover;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+.card-body {
+  padding: 10px;
+  text-align: center;
 }
 
 .card-title {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+/* Buttons for scrolling */
+.scroller-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroller-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.scroller-button.left {
+  left: 0;
+}
+
+.scroller-button.right {
+  right: 0;
 }
