@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './header.css';
+import logo from './assets/tech hivies.png';
+
+
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +14,8 @@ const Header = () => {
     <header>
       <nav className='flexSB'>
         <div className='logo'>
-          <img src='/logo.png' alt='Logo' />
+        <img src={logo} alt='Logo' />
+
         </div>
         <div className='nav-links'>
           <a href='#'>Home</a>
