@@ -1,79 +1,63 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { homeData } from "../../dummyData"; // Import static data
+import React, { useState, useEffect } from 'react';
 
-const HomeCard = ({ item: { id, cover, name, rating, time, desc, starring, genres, tags, video } }) => {
-  const [movieData, setMovieData] = useState(null);
+const Home = () => {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch recent movies from OMDB API
+  const fetchRecentMovies = async () => {
+    const currentYear = new Date().getFullYear();
+    const url = `http://www.omdbapi.com/?s=movie&y=${currentYear}&apikey=63996807`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.Response === "True") {
+        setMovies(data.Search); // Store the movies in state
+      } else {
+        setError("No movies found for this year.");
+      }
+    } catch (error) {
+      setError("Error fetching movies.");
+    } finally {
+      setLoading(false); // Set loading to false once the data is fetched
+    }
+  };
 
   useEffect(() => {
-    const fetchMovieData = async () => {
-      try {
-        // Replace with your actual API URL
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=YOUR_API_KEY`);
-        const data = await response.json();
-        setMovieData(data); // Update state with the API response
-      } catch (error) {
-        console.error("Error fetching movie data:", error);
-        // In case of an error, fallback to static data
-        setMovieData(homeData.find(item => item.id === id)); 
-      }
-    };
+    fetchRecentMovies(); // Fetch the latest movies on component mount
+  }, []);
 
-    fetchMovieData();
-  }, [id]);
+  // Handle loading and error states
+  if (loading) {
+    return <div>Loading movies...</div>;
+  }
 
-  if (!movieData) {
-    return <div>Loading...</div>; // Show loading until API data is fetched or fallback is used
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
-    <>
-      <div className="box">
-        <div className="coverImage">
-          <img src={cover || movieData.poster_path} alt="" />
-        </div>
-        <div className="content flex">
-          <div className="details row">
-            <h1>{name || movieData.title}</h1>
-            <div className="rating flex">
-              <div className="rate">
-                <i className="fas fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star-half"></i>
+    <div className="container mt-5">
+      <h2>Recent Movies of {new Date().getFullYear()}</h2>
+      <div className="row">
+        {movies.map((movie) => (
+          <div key={movie.imdbID} className="col-md-4 mb-4">
+            <div className="card">
+              <img src={movie.Poster} className="card-img-top" alt={movie.Title} />
+              <div className="card-body">
+                <h5 className="card-title">{movie.Title}</h5>
+                <p className="card-text">{movie.Year}</p>
+                <a href={`https://www.imdb.com/title/${movie.imdbID}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  View on IMDb
+                </a>
               </div>
-              <label>{rating || movieData.vote_average} (IMDb)</label>
-              <span>GP</span>
-              <label>{time}</label>
             </div>
-            <p>{desc || movieData.overview}</p>
-            <div className="cast">
-              <h4>
-                <span>Starring </span>
-                {starring || "N/A"}
-              </h4>
-              <h4>
-                <span>Genres </span>
-                {genres || "N/A"}
-              </h4>
-              <h4>
-                <span>Tags </span>
-                {tags || "N/A"}
-              </h4>
-            </div>
-            
           </div>
-          <div className="playButton row">
-            <Link to={`/singlepage/${id}`}>
-              <button>
-                <div className="img"></div>
-              </button>
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,34 +1,62 @@
-import React from 'react';
-import { homeData, upcome, latest, trending, recommended } from '../data/movieData';
+import React, { useState, useEffect } from 'react';
+import './home.css'
+const Home = () => {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const Section = ({ title, data }) => (
-  <div className="section">
-    <h2>{title}</h2>
-    <div className="movies">
-      {data.map((movie) => (
-        <div key={movie.id} className="movie-card">
-          <img src={movie.cover} alt={movie.name} />
-          <h3>{movie.name}</h3>
-          <p>{movie.time}</p>
-          <p>{movie.desc}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+  // Fetch recent movies from OMDB API
+  const fetchRecentMovies = async () => {
+    const currentYear = new Date().getFullYear();
+    const url = `http://www.omdbapi.com/?s=movie&y=${currentYear}&apikey=63996807`;
 
-const Home = ({ setShowHome }) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.Response === "True") {
+        setMovies(data.Search); // Store the movies in state
+      } else {
+        setError("No movies found for this year.");
+      }
+    } catch (error) {
+      setError("Error fetching movies.");
+    } finally {
+      setLoading(false); // Set loading to false once the data is fetched
+    }
+  };
+
+  useEffect(() => {
+    fetchRecentMovies(); // Fetch the latest movies on component mount
+  }, []);
+
+  // Handle loading and error states
+  if (loading) {
+    return <div>Loading movies...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
-    <div className="container">
-      <div className="row text-center mt-5">
-        <h1>Welcome to Movie Explorer</h1>
+    <div className="container mt-5">
+      <h2>Recent Movies of {new Date().getFullYear()}</h2>
+      <div className="row">
+        {movies.map((movie) => (
+          <div key={movie.imdbID} className="col-md-4 mb-4">
+            <div className="card">
+              <img src={movie.Poster} className="card-img-top" alt={movie.Title} />
+              <div className="card-body">
+                <h5 className="card-title">{movie.Title}</h5>
+                <p className="card-text">{movie.Year}</p>
+                <a href={`https://www.imdb.com/title/${movie.imdbID}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  View on IMDb
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-      {/* Movie sections */}
-      <Section title="Featured Movies" data={homeData} />
-      {/* <Section title="Upcoming Movies" data={upcome} />
-      <Section title="Latest Movies" data={latest} />
-      <Section title="Trending Now" data={trending} />
-      <Section title="Recommended for You" data={recommended} /> */}
     </div>
   );
 };
