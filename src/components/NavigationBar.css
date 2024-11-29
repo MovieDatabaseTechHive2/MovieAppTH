@@ -22,9 +22,13 @@
   }
   
   .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 1.8rem !important;  
     font-weight: bold;
   }
+.span .navbar-brand
+{
+  font-size: 300px;
+}
   
   .navbar-links {
     display: flex;

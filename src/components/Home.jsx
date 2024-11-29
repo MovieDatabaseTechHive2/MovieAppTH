@@ -49,9 +49,7 @@ const Home = () => {
               <div className="card-body">
                 <h5 className="card-title">{movie.Title}</h5>
                 <p className="card-text">{movie.Year}</p>
-                <a href={`https://www.imdb.com/title/${movie.imdbID}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  View on IMDb
-                </a>
+                
               </div>
             </div>
           </div>

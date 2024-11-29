@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './home.css';
 
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,15 +32,20 @@ const Home = () => {
     fetchRecentMovies(); // Fetch the latest movies on component mount
   }, []);
 
-  // Scroll the scroller by a set amount
-  const scroll = (direction) => {
-    const scrollAmount = 300; // Amount to scroll (px)
-    if (direction === 'left') {
-      scrollerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else if (direction === 'right') {
-      scrollerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+  // Auto-scroll logic
+  useEffect(() => {
+    const autoScroll = setInterval(() => {
+      if (scrollerRef.current) {
+        scrollerRef.current.scrollBy({
+          left: 200, // Scroll by 300px
+          behavior: 'smooth',
+        });
+      }
+    }, 3000); // Scroll every 3 seconds
+
+    // Clear interval on unmount
+    return () => clearInterval(autoScroll);
+  }, []);
 
   // Handle loading and error states
   if (loading) {
@@ -54,42 +60,30 @@ const Home = () => {
     <div className="scroller-container">
       <h2>Recent Movies of {new Date().getFullYear()}</h2>
       <div className="scroller-wrapper">
-        {/* Left button */}
-        <button className="scroller-button left" onClick={() => scroll('left')}>
-          &#8249;
-        </button>
-
         {/* Scroller */}
         <div className="scroller" ref={scrollerRef}>
           {movies.map((movie) => (
             <div key={movie.imdbID} className="scroller-item">
-              <div className="card">
+              <div className="card thumb">
                 <img
                   src={movie.Poster}
                   className="card-img-top"
                   alt={movie.Title}
                 />
-                <div className="card-body">
-                  <h5 className="card-title">{movie.Title}</h5>
+                <div className="content">
+                <div className="detial">
+                <div className="title">
+                <h5 className="card-title">{movie.Title}</h5>
                   <p className="card-text">{movie.Year}</p>
-                  <a
-                    href={`https://www.imdb.com/title/${movie.imdbID}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    View on IMDb
-                  </a>
+                 
+                </div>
+                </div>
+                
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Right button */}
-        <button className="scroller-button right" onClick={() => scroll('right')}>
-          &#8250;
-        </button>
       </div>
     </div>
   );
