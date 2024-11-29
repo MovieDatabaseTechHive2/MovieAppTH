@@ -243,3 +243,13 @@ body {
 .bg-dark {
   --bs-bg-opacity: 0 !important
 }
+.navbar-brand {
+  font-size: 30px; 
+  font-weight: bold; 
+
+}
+
+.bluecolor {
+  color: #007bff; 
+ font-size: inherit;  
+}
