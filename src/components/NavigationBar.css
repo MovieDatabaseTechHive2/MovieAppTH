@@ -1,0 +1,48 @@
+/* Custom styles for the navigation bar */
+.navbar-custom {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .bluecolor{
+    color: rgba(0, 140, 255, 0.815);
+  }
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    color: #00a2ff;
+  }
+  
