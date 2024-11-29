@@ -1,40 +1,18 @@
-import React, { useState } from 'react';
-import '../App.css'; 
+import React from 'react';
+import './NavigationBar.css'; // Import the custom CSS file for the navbar
 
-
-const NavigationBar = () => {
-  const [section, setSection] = useState('home');
-
-  const renderContent = () => {
-    switch (section) {
-      case 'home':
-        return (
-          <>
-            <h1>Welcome to the Movie App!</h1>
-          </>
-        );
-      case 'search':
-        return (
-          <>
-            <h1>Find your favourite movies and shows.</h1>
-          </>
-        );
-      default:
-    }
-  };
-
+const NavigationBar = ({ navigateHome, navigateMovies }) => {
   return (
-    <div>
-      <div className="navbar">
-        
-       
-      </div>
-      <div className="content">
-        {renderContent()}
+    <div className="navbar-custom">
+      <div className="navbar-container">
+        <span className="navbar-brand">Movie Explorer</span>
+        <div className="navbar-links">
+          <button className="nav-button" onClick={navigateHome}>Home</button>
+          <button className="nav-button" onClick={navigateMovies}>Movies</button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default NavigationBar;
-
