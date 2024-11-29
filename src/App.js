@@ -108,7 +108,7 @@ function App() {
         </div>
       )}
             <footer className="bg-dark text-light py-3 text-center">
-        <p>© 2024 Movie Explorer. All rights reserved. Created by Tech Hivies Movie Studio</p>
+        <p>© 2024 Movie Explorer. All rights reserved. Created by Tech Hivies Movie Studio.</p>
       </footer>
     </div>
   );
