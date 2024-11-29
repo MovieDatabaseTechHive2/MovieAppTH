@@ -50,9 +50,11 @@ body{
 .card-body {
   max-width: 500px;         /* Optional: Limit the width of the card */
   text-align: left;    
-  color:whitesmoke!important;     /* Left-align text in the movie details */
+    /* Left-align text in the movie details */
 }
-
+.whitefont{
+  color:whitesmoke!important;  
+}
 .card-title {
   font-size: 3.6em;
   margin-bottom: 15px;
@@ -162,20 +164,88 @@ body {
   opacity: 1;
 }
 
-.serachBar{
+.searchBar {
   width: 100%;
-  display: flex
-  ;
+  display: flex;
   flex-wrap: nowrap;
   align-content: flex-start;
   justify-content: center;
   align-items: center;
-  margin-bottom: 48px;
-  margin-top: 48px;
+  margin-bottom: 20px;
+  margin-top: 30px !important;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide In from the Left */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 
-/* Card hover effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.slide-in {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+
+.bounce-btn:hover {
+  animation: bounce 0.5s ease-in-out;
+  
+}
+
+
+.pulse-img:hover {
+  animation: pulse 1s infinite;
+}
+
+
+.footer-appear {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
 .card:hover {
   background-color: hsl(0, 0%, 15%);
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4),
@@ -218,7 +288,12 @@ body {
   font-size: 0.8em;
   color: var(--text-color-L2);
 }
-
+.large-Font{
+  font-size: 1.32em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 36px;
+}
 /* Ensure title and rating align properly */
 .title,
 .level {
