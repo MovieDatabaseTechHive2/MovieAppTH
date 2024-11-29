@@ -30,11 +30,15 @@
 /* Card styles */
 .card {
   border-radius: 8px;
+<<<<<<< HEAD
   /* box-shadow: 0 4px 6px rgba(49, 45, 45, 0.1); */
 }
 .card:hover
 {
   background-color: #a3c1e4
+=======
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+>>>>>>> 89be1a91ece5c80231ac797f6326c88860408eb9
 }
 
 .card-img-top {
