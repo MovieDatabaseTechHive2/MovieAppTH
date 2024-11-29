@@ -1,134 +1,230 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+  background-color: rgb(39,37,37);
+  color:rgb(206,203,203);
+  font-family: "Montserrat";
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/bgimage.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+/* Make the background of the 'btn btn-primary' transparent */
+.btn btn-primary {
+  background-color: transparent;
+  border: 2px solid white; /* Optional: Adds a border to make it visible */
+  color: white; /* Optional: Changes text color to match the border */
+  padding: 10px 20px; /* Add padding for better click area */
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+/* Centering the flex-center div */
+.flex-center {
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;      /* Vertically center */
+  height: 100vh;            /* Full viewport height */
+  text-align: center;       /* Optional: center text inside inner elements */
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;   /* Stack image and details vertically */
+  justify-content: center;
+  align-items: center;      /* Optional: center the content of the movie card */
+  border-radius: 8px;
+  padding: 20px;
+
+}
+
+.img-size {
+  width: 361px;
+  border-radius: 2%;
+  margin-right: 40px;       /* Space between the image and details */
+}
+
+.card-body {
+  max-width: 500px;         /* Optional: Limit the width of the card */
+  text-align: left;         /* Left-align text in the movie details */
+}
+
+.card-title {
+  font-size: 3.6em;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.btn {
+  margin-top: 20px;
+}
+.bold{
+  font-weight: 700;
+}
+.blue-font{
+  color: #3981bb;
+
+}
+
+/* Basic body styling */
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #141414;
+  background-color: rgb(39, 37, 37);
+  color: rgb(206, 203, 203);
+  font-family: "Montserrat";
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/bgimage.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-/*---------------global-------------*/
-a {
-  text-decoration: none;
+
+/* Centering the flex-center div */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
 }
-ul {
-  list-style-type: none;
+
+/* Movie card styling */
+.movie-card {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 20px;
 }
-.flexSB {
+
+/* Image container size */
+.img-size {
+
+ 
+  margin-right: 40px;
+}
+.col-md-3{
+  margin-bottom: 10px;
+}
+/* Card size and image styling */
+.card-box {
+  height: 400px; /* Adjust this to the desired height for each card */
+  width: 100%; /* Ensure the card width is 100% for responsiveness */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* The image inside the card */
+.thumb img {
+  width: 100%;        /* Ensure the image fills the container */
+  height: 100%;       /* Make the image cover the full height of its container */
+  object-fit: cover;  /* Ensure image fills the space without distortion */
+  border-radius: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;  /* Add transition effects */
+}
+
+/* Content area inside card */
+.content {
+  flex-grow: 1;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);  /* Background for the text */
+  color: white;
+  opacity: 0;  /* Hide content by default */
+  transition: opacity 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+/* When card is hovered, show the content */
+.card-box:hover .content {
+  opacity: 1;
+}
+
+.serachBar{
+  width: 100%;
+  display: flex
+  ;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+
+/* Card hover effect */
+.card:hover {
+  background-color: hsl(0, 0%, 15%);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4),
+    inset 1px 2px 4px rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.card:hover .thumb img {
+  opacity: 0.3;  /* Fade the image on hover */
+  filter: blur(8px); /* Slightly blur the image */
+}
+
+.card:hover .content {
+  opacity: 1;  /* Reveal content when hovered */
+}
+
+/* Movie title styling */
+.card-title {
+  font-size: 3.6em;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.blue-font {
+  color: #3981bb;
+}
+
+/* Movie details section */
+.card-body {
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Styling for additional information (e.g., release date, genre) */
+.propertion {
+  font-size: 0.8em;
+  color: var(--text-color-L2);
+}
+
+/* Ensure title and rating align properly */
+.title,
+.level {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.flex {
+
+.action {
   display: flex;
-}
-.container {
-  max-width: 90%;
-  margin: auto;
-}
-button {
-  background: #e50813;
-  outline: none;
-  border: none;
-  color: #fff;
-  padding: 12px 40px;
-  font-weight: 500;
-  font-size: 17px;
-}
-.row {
-  width: 50%;
-}
-p {
-  line-height: 30px;
+  justify-content: flex-end;
 }
 
-/*---------------global-------------*/
-/*---------------control-btn-------------*/
-.control-btn button {
-  background: none;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.control-btn .next {
-  position: absolute;
-  top: 50%;
-  right: 2%;
+.bi {
+  margin: 0 2px;
 }
 
-.control-btn .prev {
-  position: absolute;
-  top: 50%;
-  left: 2%;
-  z-index: 99;
-}
-/*---------------control-btn-------------*/
-.heading h1 {
-  font-weight: 500;
-  margin: 30px 0;
-}
-.heading a {
-  color: #e50813;
-}
-/*---------------MovieBox-------------*/
 
-.MovieBox {
-  width: 430px;
-  height: 300px;
-  position: relative;
-  transition: 0.5s;
-  border-left: 5px solid transparent;
-}
-.MovieBox:hover {
-  cursor: pointer;
-  border-left: 5px solid #e50813;
-  transform: scale3d(1.1, 1.1, 1) translate3d(6%, 0, 0) perspective(31.25em);
-  box-shadow: 0px 0px 0.75em rgba(0, 0, 0, 0.9);
-}
-.MovieBox::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 430px;
-  height: 300px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.4) 50%, rgba(83, 100, 141, 0) 100%);
-  z-index: -1;
-}
-.MovieBox img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
-}
-.MovieBox .text {
-  padding: 70px 50px;
-}
-.MovieBox h3 {
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-.MovieBox button {
-  margin-top: 15px;
-  padding: 12px 20px;
-  font-size: 13px;
-  cursor: pointer;
-}
-.MovieBox button i {
-  margin-right: 10px;
-}
-/*---------------MovieBox-------------*/
-@media only screen and (max-width: 768px) {
-  .MovieBox {
-    width: 320px;
-    height: 250px;
-  }
+
+.bg-dark {
+  --bs-bg-opacity: 0 !important
 }
