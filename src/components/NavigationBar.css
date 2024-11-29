@@ -1,6 +1,6 @@
 /* Custom styles for the navigation bar */
 .navbar-custom {
-    background-color: #333;
+    background: rgba(0,0,0,0.5);
     color: white;
     padding: 15px 20px;
     display: flex;
