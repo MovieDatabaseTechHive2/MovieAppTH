@@ -10,7 +10,9 @@
     top: 0;
     z-index: 1000;
   }
-  
+  .bluecolor{
+    color: rgba(0, 140, 255, 0.815);
+  }
   .navbar-container {
     display: flex;
     justify-content: space-between;
