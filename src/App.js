@@ -121,18 +121,21 @@ function App() {
             </div>
             <div className="row">
               {noMoviesFound ? (
-                <div className="alert alert-warning text-center" role="alert">
+                <div  className="large-Font" role="alert">
                   No movies found. Please try another search term.
                 </div>
               ) : (
+                <div className="row mt-3 ">
+                  <p class="large-Font">            🎥 Discover Your Next Favorite Movie!
+    Type in the name of a movie to explore the magic of cinema. 🌟<br></br>
+    What are you in the mood for today? 🍿🎬 
+               </p>
+     
                 <MovieList movies={movies} onSelectMovie={getMovieDetails} />
+                </div>
               )}
             </div>
-            <div className="row mt-3">
-            🎥 Discover Your Next Favorite Movie!
-Type in the name of a movie, director, or genre to explore the magic of cinema. 🌟
-What are you in the mood for today? 🍿🎬 
-            </div>
+           
           </div>
         )}
       </div>
