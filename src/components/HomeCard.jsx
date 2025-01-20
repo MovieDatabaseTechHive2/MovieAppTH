@@ -5,28 +5,28 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch recent movies from OMDB API
-  const fetchRecentMovies = async () => {
-    const currentYear = new Date().getFullYear();
-    const url = `http://www.omdbapi.com/?s=movie&y=${currentYear}&apikey=63996807`;
+  // Fetch trending movies from TMDb API
+  const fetchTrendingMovies = async () => {
+    const apiKey = '1a6503b5d2cab21a032a517aeaeea561';
+    const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`;
 
     try {
       const response = await fetch(url);
       const data = await response.json();
-      if (data.Response === "True") {
-        setMovies(data.Search); // Store the movies in state
+      if (data.results && data.results.length > 0) {
+        setMovies(data.results); // Store the trending movies in state
       } else {
-        setError("No movies found for this year.");
+        setError("No trending movies found.");
       }
     } catch (error) {
-      setError("Error fetching movies.");
+      setError("Error fetching trending movies.");
     } finally {
       setLoading(false); // Set loading to false once the data is fetched
     }
   };
 
   useEffect(() => {
-    fetchRecentMovies(); // Fetch the latest movies on component mount
+    fetchTrendingMovies(); // Fetch the trending movies on component mount
   }, []);
 
   // Handle loading and error states
@@ -40,16 +40,20 @@ const Home = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Recent Movies of {new Date().getFullYear()}</h2>
+      <h2>Trending Movies</h2>
       <div className="row">
         {movies.map((movie) => (
-          <div key={movie.imdbID} className="col-md-4 mb-4">
+          <div key={movie.id} className="col-md-4 mb-4">
             <div className="card">
-              <img src={movie.Poster} className="card-img-top" alt={movie.Title} />
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                className="card-img-top"
+                alt={movie.title}
+              />
               <div className="card-body">
-                <h5 className="card-title">{movie.Title}</h5>
-                <p className="card-text">{movie.Year}</p>
-               
+                <h5 className="card-title">{movie.title}</h5>
+                <p className="card-text">Release Date: {movie.release_date}</p>
+                <p className="card-text">Rating: ★ {movie.vote_average}</p>
               </div>
             </div>
           </div>

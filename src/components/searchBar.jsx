@@ -1,5 +1,6 @@
-import React from "react";
-import '../App.css'
+import React from 'react';
+import '../App.css';
+
 const SearchBar = (props) => {
   return (
     <div className="col col-sm-4 searchBar">
@@ -7,7 +8,9 @@ const SearchBar = (props) => {
         className="form-control"
         value={props.value}
         onChange={(event) => props.setSearchMovie(event.target.value)} // Update search term
-        placeholder="Type to search"
+        placeholder="Search for a movie..."
+        aria-label="Search for a movie"
+        type="text"
       />
     </div>
   );
